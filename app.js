@@ -33,4 +33,4 @@ app.listen(port, () => {
 app.get("/", (request, response) => {
     console.log("Backend kører");
     response.send("Backend kører");
-})
+});
