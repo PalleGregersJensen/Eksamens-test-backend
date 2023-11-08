@@ -2,18 +2,21 @@ import express from "express";
 import cors from "cors";
 import { Router } from "express";
 import { connection } from "./database.js";
-import send from "send";
+// import employeeRouter
+import { employeeRouter } from "./employee.js";
 
-const router = Router();
+// const router = Router();
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 app.use(cors());
 
+app.use("/employees", employeeRouter);
+
 // Select all from Vancant_Shifts table
 app.get("/vacant_shifts", (request, response) => {
-  const query = "SELECT * FROM Vacant_shifts";
+  const query = "SELECT * FROM Vacant_shifts ORDER BY Date";
   console.log(query);
   connection.query(query, (err, results, fields) => {
     if (err) {
