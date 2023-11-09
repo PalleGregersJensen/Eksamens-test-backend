@@ -3,7 +3,7 @@ import { connection } from "./database.js";
 
 const employeeRouter = Router();
 
-// Select all from Vancant_Shifts table
+// Select all from Vancant_Shifts table ordered by LastName
 employeeRouter.get("/", (request, response) => {
   const query = "SELECT * FROM employees ORDER BY LastName";
   console.log(query);
