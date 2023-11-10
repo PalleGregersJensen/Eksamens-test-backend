@@ -16,30 +16,27 @@ vacantShiftsRouter.get("/", (request, response) => {
   });
 });
 
-
 // Book shift
 vacantShiftsRouter.put("/:ShiftID", async (request, response) => {
   const newShiftID = Number(request.params.ShiftID);
-  console.log(id);
-console.log("Er der hul igennem?")
-//   const data = await fs.readFile("artists.json");
-//   const artists = JSON.parse(data);
+  console.log(newShiftID);
+  console.log("Er der hul igennem?");
+  const dataEmployee = request.body;
+    console.log(dataEmployee);
+    // let employeeToFind = employees.find((employee) => employee.name === id);
+  //   const body = request.body;
+  //   console.log(body);
+  //   artistToUpdate.image = body.image;
+  //   artistToUpdate.activeSince = body.activeSince;
+  //   artistToUpdate.name = body.name;
+  //   artistToUpdate.birthdate = body.birthdate;
+  //   artistToUpdate.genres = body.genres;
+  //   artistToUpdate.labels = body.labels;
+  //   artistToUpdate.website = body.website;
+  //   artistToUpdate.shortDescription = body.shortDescription;
 
-//   let artistToUpdate = artists.find((artist) => artist.id === id);
-//   const body = request.body;
-//   console.log(body);
-//   artistToUpdate.image = body.image;
-//   artistToUpdate.activeSince = body.activeSince;
-//   artistToUpdate.name = body.name;
-//   artistToUpdate.birthdate = body.birthdate;
-//   artistToUpdate.genres = body.genres;
-//   artistToUpdate.labels = body.labels;
-//   artistToUpdate.website = body.website;
-//   artistToUpdate.shortDescription = body.shortDescription;
-
-//   fs.writeFile("artists.json", JSON.stringify(artists));
-//   response.json(artists);
+  //   fs.writeFile("artists.json", JSON.stringify(artists));
+  //   response.json(artists);
 });
-
 
 export { vacantShiftsRouter };
