@@ -23,7 +23,25 @@ vacantShiftsRouter.put("/:ShiftID", async (request, response) => {
   console.log("Er der hul igennem?");
   const dataEmployee = request.body;
     console.log(dataEmployee);
-    // let employeeToFind = employees.find((employee) => employee.name === id);
+const query =
+    `UPDATE Vacant_Shifts SET EmployeeID=? WHERE ShiftID= ${newShiftID}`; //todo add relevant properties
+  const values = [
+    dataEmployee.EmployeeID,newShiftID
+  ]; //todo add relevant properties
+  console.log(values);
+
+  connection.query(query, values, (err, results, fields) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.json(results);
+    }
+  });
+});
+
+
+    // let employeeToFind = employees.find((employee) => employee.fullName === employee.FirstName);
+    // console.log(employeeToFind);
   //   const body = request.body;
   //   console.log(body);
   //   artistToUpdate.image = body.image;
@@ -37,6 +55,6 @@ vacantShiftsRouter.put("/:ShiftID", async (request, response) => {
 
   //   fs.writeFile("artists.json", JSON.stringify(artists));
   //   response.json(artists);
-});
+// });
 
 export { vacantShiftsRouter };
