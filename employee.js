@@ -12,6 +12,7 @@ employeeRouter.get("/", (request, response) => {
       console.log(err);
     } else {
       response.json(results);
+      console.log(results);
     }
   });
 });
